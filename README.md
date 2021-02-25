@@ -34,6 +34,7 @@ CI_ENVIRONMENT = development
 php spark serve
 ```
 L'application devrait se lancer et être disponible à l'adresse http://localhost:8080.
+La base de données se trouve dans le fichier ./base-de-donnees.sql
 
 **************************************************************************************
 

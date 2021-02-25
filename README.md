@@ -1,3 +1,16 @@
+# Installation du code sur votre machine
+
+1. Clonez le repository pour obtenir le code ou téléchargez-le sur votre machine.
+2. Ouvrez le dossier racine (root folder) de l'application
+3. Installez les dépendances
+```
+composer install
+``` 
+4. Pour une installation rapide et pour les besoins de cette simulation, lancez la commande 
+```
+php spark serve
+```
+
 # CodeIgniter 4 Application Starter
 
 ## What is CodeIgniter?

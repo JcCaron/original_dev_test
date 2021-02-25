@@ -1,8 +1,18 @@
 # Installation du code sur votre machine
 
 1. Clonez le repository pour obtenir le code ou téléchargez-le sur votre machine.
+```
+git clone https://github.com/ess-dev-repo/original_dev_test.git
+``` 
 2. Ouvrez le dossier racine (root folder) de l'application
-3. Installez les dépendances
+```
+cd original_dev_test
+``` 
+3. Checkout la branche master
+```
+git checkout master
+``` 
+3.. Installez les dépendances
 ```
 composer install
 ``` 

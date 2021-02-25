@@ -12,11 +12,11 @@ cd original_dev_test
 ```
 git checkout master
 ``` 
-3.. Installez les dépendances
+4. Installez les dépendances
 ```
 composer install
 ``` 
-4. Pour une installation rapide et pour les besoins de cette simulation, lancez la commande 
+5. Pour une installation rapide et pour les besoins de cette simulation, lancez la commande 
 ```
 php spark serve
 ```

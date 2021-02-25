@@ -1,6 +1,6 @@
 # Installation du code sur votre machine
 
-*Ces instructions fonctionnent sur Ubuntu et sur Ubuntu subsystem for Windows. Pour tout autre système d'exploitation, veuillez adapter la procédure. Voir la documentation directement sur le site de Codeigniter 4.*
+*Ces instructions fonctionnent sur Ubuntu et sur Windows subsystem for Ubuntu. Pour tout autre système d'exploitation, veuillez adapter la procédure. Voir la documentation directement sur le site de Codeigniter 4.*
 
 1. Clonez le repository pour obtenir le code ou téléchargez-le sur votre machine.
 ```

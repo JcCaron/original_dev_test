@@ -16,7 +16,20 @@ git checkout master
 ```
 composer install
 ``` 
-5. Pour une installation rapide et pour les besoins de cette simulation, lancez la commande 
+5. Copiez le fichier env dans un nouveau fichier .env et ouvrez .env avec un éditeur de texte
+```
+cp env .env
+nano .env
+``` 
+6. Retirez le # devant la configuration CI_ENVIRONMENT et changer production pour development. Enregistrez le fichier.
+```
+#--------------------------------------------------------------------
+# ENVIRONMENT
+#--------------------------------------------------------------------
+
+CI_ENVIRONMENT = development
+```
+7. Pour une installation rapide et pour les besoins de cette simulation, lancez la commande 
 ```
 php spark serve
 ```

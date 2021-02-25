@@ -12,6 +12,8 @@ php spark serve
 ```
 L'application devrait se lancer et être disponible à l'adresse http://localhost:8080.
 
+**************************************************************************************
+
 # CodeIgniter 4 Application Starter
 
 ## What is CodeIgniter?

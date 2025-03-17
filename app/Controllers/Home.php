@@ -14,28 +14,36 @@ class Home extends BaseController
 
 	public function index()
 	{
-		$data = [
-			'ressources'  => [
-				[
-					'name' => 'Le site de Allo prof',
-					'description' => 'Depuis 1996, Alloprof développe des services professionnels et des ressources numériques de soutien scolaire et les rend accessibles gratuitement à tous les élèves du Québec et leurs parents.',
-					'website' => "https://www.alloprof.qc.ca/", 
-					'image_src' => "/assets/images/alloprof.jpg"
-				],
-				[
-					'name' => 'La classe en ligne avec Marie-Ève Lévesque',
-					'description' => 'La Classe en ligne animée par Marie-Ève Lévesque a offert des cours de révision quotidiens gratuits à tous les élèves du primaire durant le confinement dû à la pandémie de la COVID-19, du 31 mars au 18 juin 2020.',
-					'website' => "https://www.successcolaire.ca/la-classe-en-ligne",
-					'image_src' => "/assets/images/classe_en_ligne.jpg"
-				]
-			]
-		];
-
 		$model = new RessourcesModel();
 
-        $data['ressources'] = $model->getRessources();
+		// Get filter parameters from the GET request
+		$search_name = null !== $this->request->getGet('search_name') ? $this->request->getGet('search_name') : "";
+		$web = $this->request->getGet('siteweb') ? true : false;
+		$youtube = $this->request->getGet('youtube') ? true : false;
+		$livre = $this->request->getGet('livre') ? true : false;
+		$application = $this->request->getGet('application') ? true : false;
+	
+		// Create an array of selected filters
+		$filters = [
+			'search_name' => $search_name,
+			'siteweb' => $web,
+			'youtube' => $youtube,
+			'livre' => $livre,
+			'application' => $application
+		];
 
 		$header_params = $this->get_params_for_header();
+		$user = $header_params["logged_user"];
+		$visible_only = true;
+		if(isset($user) && isset($user["role"]) && $user["role"] == "admin"){
+			$visible_only = false;
+		}
+		else{
+			$visible_only = true;
+		}
+
+		$data["filters"] = $filters;
+		$data['ressources'] = $model->getRessourcesWithFilters($visible_only, $filters);
 		$footer_params = $this->get_params_for_footer();
 
 		echo view('partials/header', $header_params);

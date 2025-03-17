@@ -33,10 +33,15 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-
+$routes->get('/admin/ressources', 'Admin::gererRessources');
+$routes->get('/admin/ressources/modify/(:num)', 'Admin::renderModifyRessource/$1');
+$routes->get('/admin/ressources/add', 'Admin::renderAddRessource');
 $routes->get('ressource/(:segment)', 'Home::viewRessource/$1');
 
-
+$routes->delete('/api/v1/ressource/delete/(:num)', 'RessourceController::deleteRessource/$1');
+$routes->post('/api/v1/ressource/modify/(:num)', 'RessourceController::modifyRessource/$1');
+$routes->post('/api/v1/ressource/add', 'RessourceController::addRessource');
+/*
 /*
  * --------------------------------------------------------------------
  * Additional Routing

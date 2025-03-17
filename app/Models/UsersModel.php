@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
-
+//TODO fix le hash
 class UsersModel extends Model
 {
    // protected $table = 'users';
@@ -17,25 +17,31 @@ class UsersModel extends Model
        $this->users = [
         'admin' => [
                 'name' => 'Administrateur 1', 
-                'password' => password_hash('password1',  PASSWORD_DEFAULT), 
+                'password' => "password1", 
                 'role' => 'admin',
                 'status' => 'enabled'
             ]
         ];
    }
+   //'password' => password_hash("password1",  PASSWORD_DEFAULT), 
 
-    public function authenticateUser($username, $password)
-    {
-        if ( ! $username || ! $password)
-            return FALSE;
+    public function authenticateUser($username, $password){
 
-        if ( ! isset ($this->users[$username]))
+        if ( ! $username || ! $password){
             return FALSE;
+        }
+        if ( !isset($this->users[$username])){
+            return FALSE;
+        }
+        $found_user = $this->users[$username];
+        
+        if ($found_user['role'] !== 'admin' || 
+            $found_user['status'] !== 'enabled' ||
+            $found_user['password'] != $password){
+            return FALSE;
+        }
+        //$found_user['password'] != password_hash($password,  PASSWORD_DEFAULT)
 
-        if ($this->users[$username]['role'] !== 'admin' || 
-            $this->users[$username]['status'] !== 'enabled' ||
-            $this->users[$username]['password'] != password_hash($password,  PASSWORD_DEFAULT))
-            return FALSE;
         
         /* clean the user before we return it */
 

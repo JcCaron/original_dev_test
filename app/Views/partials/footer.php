@@ -1,5 +1,4 @@
 <!-- FOOTER: DEBUG INFO + COPYRIGHTS -->
-
 <footer>
 
 	<div class="copyrights">

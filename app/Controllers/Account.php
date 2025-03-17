@@ -19,6 +19,8 @@ class Account extends BaseController
             {
                 $this->session->set('logged_user', $authenticatedUser);
                 return redirect()->to('/');
+            }else{
+                return redirect()->to('/account/login')->with('error', "Connection invalide");
             }
         }
 

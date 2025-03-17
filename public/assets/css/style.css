@@ -2,19 +2,30 @@
     transition: background-color 300ms ease, color 300ms ease;
 }
 *:focus {
-    background-color: rgba(221, 72, 20, .2);
+    background-color: rgba(238, 71, 11, 0.2);
     outline: none;
 }
 html, body {
     color: rgba(33, 37, 41, 1);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     font-size: 16px;
+    height: 100%;
+    width: 100vw;
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    background-color: white !important;
+    grid-template-rows: auto 1fr auto;
 }
+
+body {
+    display: grid; /* Or use "display: grid;" */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    min-height: 100vh; 
+  }
 header {
     background-color: rgba(247, 248, 249, 1);
     padding: .4rem 0 0;
@@ -130,6 +141,7 @@ section svg {
     margin-right: 5px;
     width: 25px;
 }
+
 section.login {
     min-height:400px;
 }
@@ -141,7 +153,7 @@ table.repertoire td.ressource_image {
     max-width:15%;
 }
 table.repertoire td.ressource_image img {
-    width:100%;
+    width:80%;
 }
 .further {
     background-color: rgba(247, 248, 249, 1);
@@ -163,7 +175,115 @@ footer .copyrights {
     background-color: rgba(62, 62, 62, 1);
     color: rgba(200, 200, 200, 1);
     padding: .25rem 1.75rem;
+    width: 100vw;
 }
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-back {
+    width: 120px; 
+    background-color: gray;
+    color: white;
+    padding: 10px 15px; 
+    font-size: 16px; 
+    font-weight: bold; 
+    border: none; 
+    border-radius: 8px;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3,  minmax(100px, 1fr)); 
+    gap: 70px !important;
+    margin-top: 20px;
+}
+.grid-item {
+    height: 250px;
+    width: 350px;    
+    background-size: cover !important;
+    background-position: center !important;    
+    background-repeat: no-repeat !important;    
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    color: white;  
+    height: 500px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.info {
+    position: absolute;            
+    bottom: 0;                     
+    left: 0;                       
+    width: 100%;                  
+    height: 200px;                 
+    padding: 10px;
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.7); 
+    border-radius: 8px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    color: white;
+    overflow: hidden;              
+}
+
+.info p {
+    flex-grow: 1;           
+    overflow: hidden;       
+    text-overflow: ellipsis; 
+    white-space: normal;   
+    max-height: 150px;       
+    font-size: 0.9rem;
+}
+
+.info .site {   
+    color: rgba(221, 72, 20, .8) !important; 
+}
+
+
+.info .slug {
+    position: absolute;  
+    display: flex;
+    align-items: center;
+    width: 40px;         /* Set a fixed width */
+    height: 40px; 
+    top: 10px;            
+    right: 10px;          
+    background-color: rgba(221, 72, 20, .8); 
+    color: white;
+    padding: 12px;
+    font-size: 25px;      
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.slug:hover {
+    background-color: rgba(221, 72, 20, 1); /* Darken on hover */
+}
+
+#addRessource{
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+    display: block;
+    width: 100%;
+    background-color: #1dc520;
+}
+
 @media (max-width: 559px) {
     header ul {
         padding: 0;
@@ -192,3 +312,4 @@ footer .copyrights {
         color: rgba(255, 255, 255, .8);
     }
 }
+
